@@ -10,11 +10,14 @@ class Search extends React.Component {
 
     render() {
         return (
-            <form className="contianer">
-                <label htmlFor="search-input">Search for an Employee</label>
-                <input placeholder="Enter Employee name..."/>
-                <button>Search</button>
-            </form>
+            <div className="container">
+                <h2>Search for an Employee</h2>
+                <form>
+                    <label htmlFor="search-input">Employee Name:</label>
+                    <input placeholder="Enter Employee name..."/>
+                    <button>Search</button>
+                </form>
+            </div>
         );
     }
 }
