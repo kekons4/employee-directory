@@ -8,7 +8,8 @@ function App() {
   return (
     <Router>
       <Navbar/>
-      <Route exact path='/search' component={Search}/>
+      <Search/>
+      {/* <Route exact path='/search' component={Search}/> */}
     </Router>
   );
 }
