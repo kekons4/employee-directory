@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchResults from '../../SearchResults';
+import Filter from '../../Filter';
 import API from '../../../utils/API';
 import './Search.css';
 
@@ -22,8 +23,8 @@ function Search() {
                 if (res.data.status === "error") {
                     throw new Error(res.data.message);
                 }
-                console.log(res.data);
-                setSearchState(res.data);
+                // console.log(res.data.results);
+                setSearchState(res.data.results);
                 // console.log(searchState);
             })
             .catch(err => console.error(err));
@@ -31,25 +32,31 @@ function Search() {
 
     const handleInputChange = event => {
         setInputState({query: event.target.value});
+        console.log(inputState.query);
     };
 
-    const handleFormSubmit = event => {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
+        const test = searchState.map(result => result.gender === inputState.query);
+        setInputState({results: test});
+        console.log(inputState.results);
     };
+
+    const btnClick = () => {
+        // console.log(inputState.query);
+        const test = searchState.find(result => result.name.first === inputState.query);
+        setInputState(inputState.results = test);
+        console.log(inputState.results);
+    }
 
     return (
         <div className="container">
-            <form>
-                <div>
-                    <label htmlFor="search-input">Employee:</label>
-                    <input placeholder="Enter Employee name..."/>
-                    <button>Search</button>
-                </div>
-                <select>
-                    <option>filter</option>
-                    <option>Test 2</option>
-                </select>
-            </form>
+            <Filter
+                handleInputChange={handleInputChange}
+                handleFormSubmit={handleFormSubmit}
+                btnClick={btnClick}
+            />
+            <span>{inputState.query}</span>
             <br/>
             <table>
                 <thead>
@@ -65,20 +72,9 @@ function Search() {
                     </tr>
                 </thead>
                 <SearchResults
-                    handleInputChange={handleInputChange}
-                    handleFormSubmit={handleFormSubmit}
                     results={searchState}
+                    result={inputState.results}
                 />
-                {/* <tr>
-                    <td>01</td>
-                    <td>Keon Pourboghrat</td>
-                    <td>Male</td>
-                    <td>kekons4@gmail.com</td>
-                    <td>4887 Chaddington Dr., Dublin Ohio 43017</td>
-                    <td>kekons4</td>
-                    <td>fd$34jksdfg*$jk45$#</td>
-                    <td>01-19-1995</td>
-                </tr> */}
             </table>
         </div>
     );

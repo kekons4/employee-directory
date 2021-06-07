@@ -1,0 +1,23 @@
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-bottom: 2px black solid;
+    background-color: #efefef;
+}
+
+form label {
+    font-size: 20px;
+    margin: 5px;
+}
+
+form input {
+    margin: 10px;
+}
+
+form button { 
+    margin: 10px;
+}
