@@ -31,6 +31,10 @@ function Search() {
         setInputState({query: event.target.value});
     };
 
+    const handleFormSubmit = event => {
+        event.preventDefault();
+    };
+
     return (
         <div className="container">
             <form>
