@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SearchResults from '../../SearchResults';
 import API from '../../../utils/API';
 import './Search.css';
 
@@ -21,8 +22,9 @@ function Search() {
                 if (res.data.status === "error") {
                     throw new Error(res.data.message);
                 }
+                console.log(res.data);
                 setSearchState(res.data);
-                console.log(searchState);
+                // console.log(searchState);
             })
             .catch(err => console.error(err));
     }, [searchState]);
@@ -50,18 +52,24 @@ function Search() {
             </form>
             <br/>
             <table>
-                <tr>
-                    <th>ID:</th>
-                    <th>Name:</th>
-                    <th>Gender:</th>
-                    <th>Email:</th>
-                    <th>Address:</th>
-                    <th>Username:</th>
-                    <th>Password:</th>
-                    <th>DoB:</th>
-
-                </tr>
-                <tr>
+                <thead>
+                    <tr>
+                        <th>ID:</th>
+                        <th>Name:</th>
+                        <th>Gender:</th>
+                        <th>Email:</th>
+                        <th>Address:</th>
+                        <th>Username:</th>
+                        <th>Password:</th>
+                        <th>DoB:</th>
+                    </tr>
+                </thead>
+                <SearchResults
+                    handleInputChange={handleInputChange}
+                    handleFormSubmit={handleFormSubmit}
+                    results={searchState}
+                />
+                {/* <tr>
                     <td>01</td>
                     <td>Keon Pourboghrat</td>
                     <td>Male</td>
@@ -70,7 +78,7 @@ function Search() {
                     <td>kekons4</td>
                     <td>fd$34jksdfg*$jk45$#</td>
                     <td>01-19-1995</td>
-                </tr>
+                </tr> */}
             </table>
         </div>
     );
