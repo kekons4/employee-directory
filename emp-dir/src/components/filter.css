@@ -1,4 +1,4 @@
-form {
+section {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -9,15 +9,15 @@ form {
     background-color: #efefef;
 }
 
-form label {
+section label {
     font-size: 20px;
     margin: 5px;
 }
 
-form input {
+section input {
     margin: 10px;
 }
 
-form button { 
+section button { 
     margin: 10px;
 }

@@ -8,12 +8,12 @@ function Search() {
     const [searchState, setSearchState] = useState([]);
     const [inputState, setInputState] = useState({
         query: "",
-        results: []
+        results: undefined
     });
 
     useEffect(() => {
 
-        if(!searchState) return;
+        if(searchState.length > 0) return;
 
         API.employeeResults()
             .then(res => {
@@ -44,17 +44,22 @@ function Search() {
 
     const btnClick = () => {
         // console.log(inputState.query);
-        const test = searchState.find(result => result.name.first === inputState.query);
-        setInputState(inputState.results = test);
-        console.log(inputState.results);
+        const test = searchState.find(result => result.name.first === inputState.query || result.name.last === inputState.query);
+        setSearchState([test]);
+        console.log(searchState);
+    }
+
+    const resetFilter = () => {
+        setSearchState([]);
+        setInputState({query: ""});
     }
 
     return (
         <div className="container">
             <Filter
                 handleInputChange={handleInputChange}
-                handleFormSubmit={handleFormSubmit}
                 btnClick={btnClick}
+                resetFilter={resetFilter}
             />
             <span>{inputState.query}</span>
             <br/>
@@ -73,7 +78,7 @@ function Search() {
                 </thead>
                 <SearchResults
                     results={searchState}
-                    result={inputState.results}
+                    // result={inputState.results}
                 />
             </table>
         </div>
