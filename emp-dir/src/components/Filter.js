@@ -8,7 +8,7 @@ function Filter(props) {
                 <label htmlFor="search-input">Employee:</label>
                 <input onChange={props.handleInputChange} placeholder="Username, First or Last name..."/>
                 <select onChange={props.handleSelectChange}>
-                    <option>filter</option>
+                    <option value={undefined}>filter</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                 </select>

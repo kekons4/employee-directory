@@ -46,12 +46,17 @@ function Search() {
     // };
 
     const btnClick = () => {
-        console.log(inputState.filter);
+        // console.log(inputState.filter);
         if(inputState.filter === undefined) {
-            console.log("test");
-            const test = searchState.find(result => result.name.first === inputState.query || result.name.last === inputState.query || result.login.username === inputState.query);
-            setSearchState([test]);
-            return;
+            // console.log("test");
+            if(inputState.query === ""){
+                alert("You can not do an empty search, try again...");
+                return;
+            } else {
+                const test = searchState.find(result => result.name.first === inputState.query || result.name.last === inputState.query || result.login.username === inputState.query);
+                setSearchState([test]);
+                return;
+            }
         } else {
             if(inputState.filter === "Male") {
                 console.log("mAle");
@@ -69,8 +74,10 @@ function Search() {
     }
 
     const resetFilter = () => {
+        setSearchState(searchState.splice(0, searchState.length));
+        console.log(searchState);
         setSearchState([]);
-        setInputState({query: ""});
+        setInputState({query: "", filter: ""});
     }
 
     return (

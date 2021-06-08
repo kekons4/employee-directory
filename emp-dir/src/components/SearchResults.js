@@ -8,7 +8,7 @@ function SearchResults(props) {
         return (
             <tbody>
                 {props.results.map(result => {
-                    return( <tr>
+                    return( <tr key={result.login.uuid}>
                         <td>{result.login.uuid}</td>
                         <td>{result.name.first + " " + result.name.last}</td>
                         <td>{result.gender}</td>
