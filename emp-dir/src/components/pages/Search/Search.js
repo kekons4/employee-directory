@@ -54,7 +54,8 @@ function Search() {
                 return;
             } else {
                 const test = searchState.find(result => result.name.first === inputState.query || result.name.last === inputState.query || result.login.username === inputState.query);
-                setSearchState([test]);
+                test !== undefined ? setSearchState([test]) : alert("No Employee was found, try again...");
+                resetFilter();
                 return;
             }
         } else {
@@ -63,10 +64,14 @@ function Search() {
                 const gender = searchState.filter(gen => gen.gender === "male");
                 setSearchState([...gender]);
                 return;
-            } else {
+            } else if(inputState.filter === "Female") {
                 const gender = searchState.filter(gen => gen.gender === "female");
                 setSearchState([...gender]);
-                console.log(searchState[0].gender);
+                // console.log(searchState[0].gender);
+                return;
+            } else {
+                alert("Nothing to search, try again...");
+                resetFilter();
                 return;
             }
         }
