@@ -20,4 +20,13 @@ section input {
 
 section button { 
     margin: 10px;
+    border-radius: 5px;
+}
+
+.reset {
+    color: rgb(124, 9, 9);
+    font-weight: 600;
+    background-color: rgb(248, 35, 35);
+    border: 2px rgb(124, 9, 9) solid;
+    border-radius: 5px;
 }

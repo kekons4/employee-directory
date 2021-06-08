@@ -35,12 +35,12 @@ function Search() {
         console.log(inputState.query);
     };
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-        const test = searchState.map(result => result.gender === inputState.query);
-        setInputState({results: test});
-        console.log(inputState.results);
-    };
+    // const handleFormSubmit = (event) => {
+    //     event.preventDefault();
+    //     const test = searchState.map(result => result.gender === inputState.query);
+    //     setInputState({results: test});
+    //     console.log(inputState.results);
+    // };
 
     const btnClick = () => {
         // console.log(inputState.query);
@@ -61,7 +61,6 @@ function Search() {
                 btnClick={btnClick}
                 resetFilter={resetFilter}
             />
-            <span>{inputState.query}</span>
             <br/>
             <table>
                 <thead>

@@ -8,7 +8,7 @@ function Filter(props) {
                 <label htmlFor="search-input">Employee:</label>
                 <input onChange={props.handleInputChange} placeholder="Enter First or Last name..."/>
                 <button onClick={props.btnClick}>Search</button>
-                <button onClick={props.resetFilter}>reset</button>
+                <button className="reset" onClick={props.resetFilter}>Reset</button>
             </div>
             <select>
                 <option>filter</option>
