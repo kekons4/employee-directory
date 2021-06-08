@@ -8,7 +8,7 @@ function Search() {
     const [searchState, setSearchState] = useState([]);
     const [inputState, setInputState] = useState({
         query: "",
-        results: undefined
+        filter: ""
     });
 
     useEffect(() => {
@@ -32,9 +32,12 @@ function Search() {
 
     const handleInputChange = event => {
         setInputState({query: event.target.value});
-        console.log(inputState.query);
+        // console.log(inputState.query);
     };
-
+    
+    const handleSelectChange = event => {
+        setInputState({filter: event.target.value});
+    };
     // const handleFormSubmit = (event) => {
     //     event.preventDefault();
     //     const test = searchState.map(result => result.gender === inputState.query);
@@ -43,10 +46,26 @@ function Search() {
     // };
 
     const btnClick = () => {
-        // console.log(inputState.query);
-        const test = searchState.find(result => result.name.first === inputState.query || result.name.last === inputState.query);
-        setSearchState([test]);
-        console.log(searchState);
+        console.log(inputState.filter);
+        if(inputState.filter === undefined) {
+            console.log("test");
+            const test = searchState.find(result => result.name.first === inputState.query || result.name.last === inputState.query || result.login.username === inputState.query);
+            setSearchState([test]);
+            return;
+        } else {
+            if(inputState.filter === "Male") {
+                console.log("mAle");
+                const gender = searchState.filter(gen => gen.gender === "male");
+                setSearchState([...gender]);
+                return;
+            } else {
+                const gender = searchState.filter(gen => gen.gender === "female");
+                setSearchState([...gender]);
+                console.log(searchState[0].gender);
+                return;
+            }
+        }
+        // console.log(searchState[0].gender);
     }
 
     const resetFilter = () => {
@@ -58,6 +77,7 @@ function Search() {
         <div className="container">
             <Filter
                 handleInputChange={handleInputChange}
+                handleSelectChange={handleSelectChange}
                 btnClick={btnClick}
                 resetFilter={resetFilter}
             />

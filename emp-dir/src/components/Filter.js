@@ -6,14 +6,15 @@ function Filter(props) {
         <section>
             <div>
                 <label htmlFor="search-input">Employee:</label>
-                <input onChange={props.handleInputChange} placeholder="Enter First or Last name..."/>
+                <input onChange={props.handleInputChange} placeholder="Username, First or Last name..."/>
+                <select onChange={props.handleSelectChange}>
+                    <option>filter</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
                 <button onClick={props.btnClick}>Search</button>
                 <button className="reset" onClick={props.resetFilter}>Reset</button>
             </div>
-            <select>
-                <option>filter</option>
-                <option>Test 2</option>
-            </select>
         </section>
     );
 }
