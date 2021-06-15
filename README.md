@@ -10,7 +10,7 @@ Link to Deployed HeroKu application:
 
 ## Screenshots
 
-![Screenshot_one](/assets/screenshot_one.PNG)
+![Screenshot_one](/assets/screenshot_one.png)
 ##### Screenshot of all Employees displayed to user
 
 ![Screenshot_two](/assets/screenshot_two.PNG)
