@@ -14,7 +14,7 @@ Link to Deployed HeroKu application:
 ##### Screenshot of all Employees displayed to user
 
 ![Screenshot_two](/assets/screenshot_two.PNG)
-##### Screenshot of since Employee being searched
+##### Screenshot of Employees being filtered by gender
 
 ## Installation
 
