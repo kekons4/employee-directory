@@ -6,7 +6,7 @@ HW 19 of the OSU coding bootcamp
 In this Project we created a Employee Directory web app that displays all Employee information
 to the screen. The user can filter by searching First or Lastname, Username, and by gender.
 
-Link to Deployed HeroKu application: 
+Link to Deployed on GitHub Pages:  https://kekons4.github.io/employee-directory/
 
 ## Screenshots
 
